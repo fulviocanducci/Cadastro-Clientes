@@ -1,0 +1,18 @@
+{
+  "name": "customer-registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Responsive customer registration form using HTML, vanilla JavaScript, and Tailwind CSS v4",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./public/css/styles.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./public/css/styles.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "select2": "^4.0.13"
+  }
+}

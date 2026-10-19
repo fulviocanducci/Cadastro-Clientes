@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Formulário de cadastro de clientes." />
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="./public/css/styles.css" />
+    <link rel="stylesheet" href="./public/css/lib/select2.min.css" />
+    <script src="./src/js/components/icons.js"></script>
+    <script src="./src/js/components/render-icons.js" defer></script>
+    <script src="./public/js/lib/jquery.min.js"></script>
+    <script src="./public/js/lib/select2.full.min.js"></script>
+    <script src="./public/js/lib/select2-pt-BR.js"></script>
+    <script src="./src/js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-8">
+      <section class="w-full max-w-3xl rounded-2xl bg-white p-6 shadow-lg sm:p-8">
+        <header class="mb-5">
+          <h1 class="text-2xl font-bold text-gray-800 sm:text-3xl">Cadastro de Cliente</h1>
+          <p class="mt-0 text-sm text-gray-500">Preencha os dados para realizar o cadastro.</p>
+        </header>
+
+        <form id="customer-form" novalidate>
+          <section class="mb-8">
+            <h2 class="mb-1 text-lg font-semibold text-gray-700">Dados do Cliente</h2>
+            <div class="border-t border-gray-200 mb-4"></div>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-12">
+              <div class="md:col-span-12">
+                <label for="full-name" class="mb-1 block text-sm font-medium text-gray-700">Nome completo</label>
+                <div class="relative">
+                  <span
+                    data-icon="user-round"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="full-name"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                    autofocus
+                  />
+                </div>
+                <p id="full-name-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-5">
+                <label for="email" class="mb-1 block text-sm font-medium text-gray-700">E-mail</label>
+                <div class="relative">
+                  <span
+                    data-icon="mail"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="email-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-3">
+                <label for="cpf" class="mb-1 block text-sm font-medium text-gray-700">CPF</label>
+                <div class="relative">
+                  <span
+                    data-icon="id-card"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="cpf"
+                    name="cpf"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="000.000.000-00"
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="cpf-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-4">
+                <label for="cnpj" class="mb-1 block text-sm font-medium text-gray-700">CNPJ</label>
+                <div class="relative">
+                  <span
+                    data-icon="building-2"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="cnpj"
+                    name="cnpj"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="00.000.000/0000-00"
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="cnpj-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-12">
+                <label for="company-name" class="mb-1 block text-sm font-medium text-gray-700">Razão social</label>
+                <div class="relative">
+                  <span
+                    data-icon="building"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="company-name"
+                    name="companyName"
+                    type="text"
+                    autocomplete="organization"
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="company-name-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="mb-1 text-lg font-semibold text-gray-700">Endereço</h2>
+            <div class="border-t border-gray-200 mb-4"></div>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-12">
+              <div class="md:col-span-3">
+                <label for="zip-code" class="mb-1 block text-sm font-medium text-gray-700">CEP</label>
+                <div class="relative">
+                  <span
+                    data-icon="map-pin"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="zip-code"
+                    name="zipCode"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                    placeholder="00000-000"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="zip-code-status" class="mt-1 text-sm text-gray-500" aria-live="polite"></p>
+                <p id="zip-code-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-9">
+                <label for="street" class="mb-1 block text-sm font-medium text-gray-700">Rua</label>
+                <div class="relative">
+                  <span
+                    data-icon="map-pinned"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="street"
+                    name="street"
+                    type="text"
+                    autocomplete="address-line1"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="street-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-3">
+                <label for="number" class="mb-1 block text-sm font-medium text-gray-700">Número (opcional)</label>
+                <div class="relative">
+                  <span
+                    data-icon="hash"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="number"
+                    name="number"
+                    type="text"
+                    autocomplete="address-line2"
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+              </div>
+
+              <div class="md:col-span-5">
+                <label for="city" class="mb-1 block text-sm font-medium text-gray-700">Cidade</label>
+                <div class="relative">
+                  <span
+                    data-icon="map"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <input
+                    id="city"
+                    name="city"
+                    type="text"
+                    autocomplete="address-level2"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+                <p id="city-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+
+              <div class="md:col-span-4">
+                <label for="state" class="mb-1 block text-sm font-medium text-gray-700">Estado (UF)</label>
+                <div class="relative">
+                  <span
+                    data-icon="map-pinned"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                  ></span>
+                  <select
+                    id="state"
+                    name="state"
+                    required
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-2.5 py-1.5 text-sm text-gray-800 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  >
+                    <option value="">Selecione a UF</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+                </div>
+                <p id="state-error" class="mt-1 text-sm text-red-600" hidden></p>
+              </div>
+            </div>
+          </section>
+
+          <div id="form-message" class="mb-4 rounded-lg p-3 text-sm" role="status" aria-live="polite" hidden></div>
+
+          <button
+            type="submit"
+            class="w-full rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center gap-2"
+          >
+            <span data-icon="user-round-plus" class="w-4 h-4 shrink-0 pointer-events-none"></span>
+            Cadastrar
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

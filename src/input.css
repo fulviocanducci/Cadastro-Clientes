@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* Select2 overrides to match form input styles exactly */
+.select2-container--default .select2-selection--single {
+  height: auto !important;
+  min-height: 33px !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.375rem !important;
+  padding: 0.375rem 0.625rem 0.375rem 2.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  color: #1f2937 !important;
+  background-color: #fff !important;
+  outline: none !important;
+  display: flex !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 1.5 !important;
+  padding: 0 !important;
+  color: #1f2937 !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100% !important;
+  right: 0.5rem !important;
+  top: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  border-color: #6b7280 transparent transparent transparent !important;
+  border-width: 5px 5px 0 5px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default .select2-selection--single:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px #bfdbfe !important;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px #bfdbfe !important;
+  border-radius: 0.375rem !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.375rem !important;
+  padding: 0.375rem 0.625rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  outline: none !important;
+  height: 33px !important;
+  box-sizing: border-box !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px #bfdbfe !important;
+}
+
+.select2-dropdown {
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.375rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  margin-top: 2px !important;
+  z-index: 100 !important;
+}
+
+.select2-results__option {
+  padding: 0.375rem 0.75rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.select2-results__option--highlighted {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+.select2-results__option[aria-selected="true"] {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+.select2-container--default .select2-results__option[aria-disabled="true"] {
+  color: #9ca3af !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: #9ca3af !important;
+}
+
+/* Position icon for Select2 state field */
+#state + .select2-container {
+  position: relative !important;
+}
+#state + .select2-container::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3Cpath d='M12 2v4'/%3E%3Cpath d='M12 18v4'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#state + .select2-container .select2-selection--single {
+  padding-left: 2.5rem !important;
+}
+
+/* Hide original icon span for state select since Select2 uses its own container */
+.relative:has(#state) > [data-icon="map-pinned"] {
+  display: none;
+}
